@@ -1,4 +1,5 @@
 from django.db import models
+from decimal import Decimal
 
 class Order(models.Model):
     """
@@ -16,7 +17,9 @@ class Order(models.Model):
         verbose_name='Customer Note',
         help_text='Special instructions or notes from the customer'
          )
-    total_order_amount = models.FloatField(
+    total_order_amount = models.DecimalField(
+        max_digits=10,
+        decimal_places=2,
         verbose_name='Total Order Amount',
         help_text='Final total amount of the order'
     )
@@ -42,7 +45,7 @@ class OrderItem(models.Model):
     order = models.ForeignKey(
         Order,
         on_delete=models.CASCADE,
-        related_name='items'
+        related_name='items',
         null=True,
         verbose_name='Order',
         help_text='The order this item is associated with'
@@ -52,7 +55,9 @@ class OrderItem(models.Model):
         verbose_name='Item Name',
         help_text='Name of the menu item'
         )
-    item_price = models.FloatField(
+    item_price = models.DecimalField(
+        max_digits=8,
+        decimal_places=2,
         verbose_name='Item Price',
         help_text='Price per unit of the item'        
     )
