@@ -1,5 +1,11 @@
 /* Reset some default styles */
-body, h1, h2, p, ul {
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
     margin: 0;
     padding: 0;
 }
@@ -7,72 +13,55 @@ body, h1, h2, p, ul {
 body {
     font-family: Arial, sans-serif;
     line-height: 1.6;
-    background-color: #fff8f0;
-    color: #333;
+    background-color: #f4f4f4;
 }
 
-/* Navigation bar */
+/* Links */
+a, a:hover {
+    text-decoration: none;
+}
+
+/* Header */
 header {
-    background-color: #d35400;
-    padding: 10px 20px;
-}
-
-nav {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-}
-
-.logo {
+    background-color: #333;
     color: #fff;
-    font-size: 1.5rem;
+    padding: 10px 0;
 }
 
-nav ul {
+header nav ul {
+    display: flex;
+    justify-content: center;
     list-style: none;
-    display: flex;
-    gap: 15px;
 }
 
-nav ul li a {
+header nav ul li {
+    margin: 0 15px;
+}
+
+header nav ul li a {
     color: #fff;
-    text-decoration: none;
-    font-weight: bold;
-    padding: 5px 10px;
-    border-radius: 4px;
-    transition: background-color 0.3s ease;
-}
-
-nav ul li a:hover {
-    background-color: rgba(255, 255, 255, 0.2);
-    text-decoration: none;
 }
 
 /* Hero section */
 .hero {
     position: relative;
-    z-index: 1;
+    background: url("../images/hero-bg.jpg") no-repeat center/cover;
+    height: 400px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
     text-align: center;
-    padding: 60px 20px;
-    background: url("https://images.unsplash.com/photo-1600891964599-f61ba0e24092") no-repeat center/cover;
     color: #fff;
 }
 
 .hero::before {
     content: "";
     position: absolute;
-    inset: 0;
-    background-color: rgba(0, 0, 0, 0.4);
-    z-index: -1;
-}
-
-.hero h2, .hero p {
-    animation: fadeIn 1s ease-in-out;
-}
-
-@keyframes fadeIn {
-    from { opacity: 0; transform: translateY(10px); }
-    to { opacity: 1; transform: translateY(0); }
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    background: rgba(0, 0, 0, 0.5);
 }
 
 .hero h2 {
@@ -82,30 +71,23 @@ nav ul li a:hover {
 
 .hero p {
     font-size: 1.2rem;
-    margin-bottom: 20px;
 }
 
 /* Button styles */
 .btn {
+    display: inline-block;
     background-color: #e67e22;
     color: #fff;
     padding: 10px 20px;
-    text-decoration: none;
-    font-weight: bold;
     border-radius: 5px;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
-    transition: background-color 0.3s ease, transform 0.2s ease;
 }
 
 .btn:hover {
-    background-color: #cf711f;
-    transform: scale(1.05);
+    background-color: #d35400;
 }
 
-/* Main content area */
-main {
-    max-width: 1100px;
-    margin: 0 auto;
+/* content Srctions */
+section {
     padding: 20px;
 }
 
