@@ -1,31 +1,10 @@
-{% load static %}
-<!DOCTYPE html>
-<html lang="en">
-    <head>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>{{ restaurant_name }}</title>
-        <link rel="stylesheet" href="{% static 'home/css/style.css' %}">
-    </head>
-    <body>
-        <header>
-            <nav>
-                <h1 class="logo">{{ restaurant_name }}</h1>
-                <ul>
-                    <li><a href="#">Home</a></li>
-                    <li><a href="#">Menu</a></li>
-                    <li><a href="#">Orders</a></li>
-                    <li><a href="#">Contact</a></li>
-                </ul>
-            </nav>
-        </header>
-        <section class="hero-section">
-            <h2> Welcome to {{ restaurant_name }}</h2>
-            <p>Fresh, delicious food delivered to your door.</p>
-            <a href="#" class="btn">Order Now</a>
-        </section>
-        <footer>
-            <p>&copy; 2025 {{ restaurant_name }}. All rights reserved.</p>
-        </footer>
-    </body>
-</html>
+{% extends 'base.html' %}
+{% block title %}Home - {{ restaurant_name }}{% endblock %}
+
+{% block content %}
+<section class="hero-section">
+    <h2> Welcome to {{ restaurant_name }}</h2>
+    <p>Fresh, delicious food delivered to your door.</p>
+    <a href="#" class="btn">Order Now</a>
+</section>
+{% endblock %}
