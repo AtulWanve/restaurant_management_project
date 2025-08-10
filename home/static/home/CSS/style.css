@@ -9,11 +9,17 @@ body {
     font-family: Arial, sans-serif;
     line-height: 1.6;
     background-color: #f4f4f4;
+    color: #333;
 }
 
 /* Links */
-a, a:hover {
+a {
     text-decoration: none;
+    color: inherit;
+}
+
+a:hover {
+    color: #e67e22;
 }
 
 /* Header */
@@ -86,6 +92,14 @@ header nav ul li a {
 /* content Sections */
 section {
     padding: 20px;
+}
+
+/* About page specific */
+.about-section {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 30px;
+    align-items: center;
 }
 
 /* Footer */
