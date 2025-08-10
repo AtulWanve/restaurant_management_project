@@ -1,17 +1,9 @@
-{% load static %}
-<!DOCTYPE html>
-<html lang="en">
-    <head>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>About Us - My Restaurant</title>
-        <link rel="stylesheet" href="{% static 'home/css/style.css' %}">
-    </head>
-    <body>
-        <header>
-            <nav>
-                <h1 class="logo"
-            </nav>
-        </header>
-    </body>
-</html>
+{% extends 'base.html' %}
+
+{% block content %}
+<section class="about-section">
+    <h2>About Us</h2>
+    <p>We are a family-owned restaurant serving fresh and authentic meals since 1999.</p>
+    <img src="{% static 'home/images/restaurant.jpg' %}" alt="Our Restaurant" style="width:300px;">
+</section>
+{% endblock %}
