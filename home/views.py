@@ -9,6 +9,9 @@ def homepage(request):
     }
     return render(request, 'home/index.html', context)
 
+def contact_us(request):
+    return render(request, 'home/contact.html')
+
 class MenuItemsView(APIView):
     def get(self, request):
         menu_items = [
