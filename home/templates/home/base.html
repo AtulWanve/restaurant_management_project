@@ -12,10 +12,10 @@
             <nav>
                 <h1 class="logo">{{ restaurant_name }}</h1>
                 <ul>
-                    <li><a href="{% url 'home' %}">Home</a></li>
+                    <li><a href="{% url 'homepage' %}">Home</a></li>
                     <li><a href="#">Menu</a></li>
                     <li><a href="#">Orders</a></li>
-                    <li><a href="#">Contact</a></li>
+                    <li><a href="{% url 'contact-us' %}">Contact</a></li>
                     <li><a href="{% url 'about' %}">About Us</a></li>
                 </ul>
             </nav>
