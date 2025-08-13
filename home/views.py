@@ -5,7 +5,8 @@ from rest_framework.response import Response
 
 def homepage(request):
     context = {
-        'restaurant_name': settings.RESTAURANT_NAME
+        'restaurant_name': settings.RESTAURANT_NAME,
+        'restaurant_phone': settings.RESTAURANT_PHONE
     }
     return render(request, 'home/index.html', context)
 
