@@ -35,7 +35,7 @@ class MenuItemsView(APIView):
             menu_items = [
                 {'id': 1, 'name': 'Pizza', 'price': 9.99},
                 {'id': 2, 'name': 'Burger', 'price': 5.99},
-                {'id': 3, 'name': 'Pasta', 'price': 7.49},
+                {'id': 3, 'name': 'Pasta', 'price': 7.49}
             ]
             return Response(menu_items)
         except Exception as e:
