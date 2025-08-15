@@ -39,6 +39,7 @@ class MenuItemsView(APIView):
             ]
             return Response(menu_items)
         except Exception as e:
+            # log the error for debugging
             logger.error(f'Error fetching menu items: {e}')
             return Response(
                 {'error': 'Unable to load menu items at the moment.'},
