@@ -131,4 +131,20 @@ footer {
 }
 
 /* Logo styles */
-.logo-con
+.logo-container {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding-left: 20px;
+}
+
+.logo {
+    max-height: 50px;
+    width: auto;
+}
+
+.logo-text {
+    font-size: 1.5rem;
+    color: #fff;
+    font-weight: bold;
+}
