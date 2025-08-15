@@ -10,7 +10,10 @@
     <body>
         <header>
             <nav>
-                <h1 class="logo">{{ restaurant_name }}</h1>
+                <div class="logo-container">
+                    <img src="{% static 'home/images/logo.png' %}" alt="{{ restaurant_name }} Logo" class="logo">
+                    <h1 class="logo-text">{{ restaurant_name }}</h1>
+                </div>
                 <ul>
                     <li><a href="{% url 'homepage' %}">Home</a></li>
                     <li><a href="#">Menu</a></li>
