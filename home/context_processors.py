@@ -4,3 +4,4 @@ def current_year(requests):
     return {
         'current_year': datetime.now().year
     }
+    
