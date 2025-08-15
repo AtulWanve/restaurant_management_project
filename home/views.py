@@ -16,6 +16,9 @@ def contact_us(request):
 def about(request):
     return render(request, 'home/about.html')
 
+def reservations(request):
+    return render(request, 'home/reservations.html')
+
 class MenuItemsView(APIView):
     def get(self, request):
         menu_items = [
