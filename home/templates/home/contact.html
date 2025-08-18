@@ -1,12 +1,41 @@
 {% extends 'home/base.html' %}
 
+{% block title %}Contact Us - {{ restaurant_name }}{% endblock %}
+
 {% block content %}
 <h1>Contact Us</h1>
 <p>If you have any questions, feel free to reach out to us:</p>
-<ul>
-    <li>Email: support@example.com</li>
-    <li>Phone: +91 9876543210</li>
-    <li>Address: 123 Main Street, Your City, India</li>
-</ul>
+
+<form id="contactForm">
+    <label for="name">Name:</label>
+    <input type="text" id="name" name="name" required>
+    
+    <label for="email">Email:</label>
+    <input type="email" id="email" name="email" required>
+
+    <label for="message">Message:</label>
+    <textarea id="message" name="message"></textarea>
+
+    <button type="submit">Send</button>
+</form>
+
+<p id="formError" style="color:red; display:none;"></p>
+
 <a href="{% url 'homepage' %}">Back to Home</a>
+
+<script>
+document.getElementById('contactForm').addEventListener('submit', function(event) {
+    const name = document.getElementById('name').value.trim();
+    const email = document.getElementById('email').value.trim();
+    const errorMsg = document.getElementById('formError');
+
+    if (!name || !email) {
+        event.preventDefault();
+        errorMsg.style.display = 'block';
+        errorMsg.textContent = 'Please fill in both Name and Email.';
+    } else {
+        errorMsg.style.display = 'none';
+    }
+});
+</script>
 {% endblock %}
