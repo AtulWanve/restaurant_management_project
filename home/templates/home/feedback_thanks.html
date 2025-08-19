@@ -1,0 +1,9 @@
+{% extends 'home/base.html' %}
+
+{% block title %}Thank You - {{ restaurant_name }}{% endblock %}
+
+{% block content %}
+<h2>Thank You!</h2>
+<p>Your feedback has been submitted successfully.</p>
+<a href="{% url 'homepage' %}">Back to Home</a>
+{% endblock %}
