@@ -1,4 +1,5 @@
-from django.shortcuts import render
+from django.shortcuts import render, redirect
+from .forms import FeedbackForm
 from django.conf import settings
 from rest_framework.views import APIView
 from rest_framework.response import Response
@@ -28,6 +29,19 @@ def about(request):
 
 def reservations(request):
     return render(request, 'home/reservations.html')
+
+def feedback_view(request):
+    if request.method == 'POST':
+        form = FeedbackForm(request.POST)
+        if form.is_valid():
+            form.save()
+            return redirect('feedback-thanks')
+    else:
+        form = FeedbackForm()
+    return render(request, 'home/feedback.html', {'form': form})
+
+def feedback_thanks(request):
+    return render(request, 'home/feedback_thanks.html')
 
 class MenuItemsView(APIView):
     def get(self, request):
