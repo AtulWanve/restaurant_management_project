@@ -2,6 +2,10 @@ from django.db import models
 from django.contrib.auth.models import User
 from products.models import Item
 
+def home(request):
+    menu_items = Item.objects.all()
+    return render(request, 'home.html', {'menu_items': menu_items})
+
 class Order(models.Model):
     """
     represents a customer's order.
