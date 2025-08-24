@@ -1,15 +1,18 @@
 from django.db import models
-from decimal import Decimal
+from django.contrib.auth.models import User
+from products.models import Item
 
 class Order(models.Model):
     """
     represents a customer's order.
     stores total amount, payment status, and any notes from the customer.
     """
-    customer_name = models.CharField(
-        max_length=100,
-        verbose_name='Customer Name',
-        help_text='Name of the person who placed order'
+    customer = models.ForeignKey(
+        User,
+        on_delete=models.CASCADE,
+        related_name='orders',
+        verbose_name='Customer',
+        help_text='User who placed this order'
         )
     note = models.TextField(
         blank=True,
@@ -35,7 +38,7 @@ class Order(models.Model):
         )
 
     def __str__(self):
-        return f'Order #{self.pk} by {self.customer_name}'
+        return f'Order #{self.pk} by {self.customer.username}'
 
 class OrderItem(models.Model):
     """
@@ -50,17 +53,13 @@ class OrderItem(models.Model):
         verbose_name='Order',
         help_text='The order this item is associated with'
         )
-    item_name = models.CharField(
-        max_length=100,
-        verbose_name='Item Name',
+    item = models.ForeignKey(
+        Item,
+        on_delete=models.CASCADE,
+        related_name='order_items',
+        verbose_name='Menu Item',
         help_text='Name of the menu item'
         )
-    item_price = models.DecimalField(
-        max_digits=8,
-        decimal_places=2,
-        verbose_name='Item Price',
-        help_text='Price per unit of the item'        
-    )
     quantity = models.PositiveIntegerField(
         verbose_name='Quantity',
         help_text='Number of units of this item in the order'
@@ -71,4 +70,11 @@ class OrderItem(models.Model):
         help_text='Timestamp when this item was added to the order')
 
     def __str__(self):
-        return f'{self.quantity} x {self.item_name} (Order #{self.order.id})'
+        return f'{self.quantity} x {self.item.item_name} (Order #{self.order.id})'
+
+    @property
+    def total_price(self):
+        """
+        returns the total price for this item (price * quantity).
+        """
+        return self.quantity * self.item.item_price
