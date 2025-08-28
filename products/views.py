@@ -25,3 +25,7 @@ class ItemView(APIView):
             serializer.save()
             return Response(serializer.data, status=status.HTTP_201_CREATED)
         return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
+
+def menu_view(request):
+    items = Item.objects.all()
+    return render(request, 'product')
