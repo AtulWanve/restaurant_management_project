@@ -6,3 +6,9 @@ def current_year(request):
         'current_year': datetime.now().year
     }
     
+def restaurant_info(request):
+    return {
+        'restaurant_name': 'My Restaurant',
+        'restaurant_phone': '+91-9876543210',
+        'restaurant_adress': '123 MG Road, Bangaluru, Karnatake, India',
+    }
